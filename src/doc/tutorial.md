@@ -1503,7 +1503,7 @@ reference. We also call this _borrowing_ the local variable
 `on_the_stack`, because we are creating an alias: that is, another
 route to the same data.
 
-Likewise, in the case of `owned_box`,
+Likewise, in the case of `on_the_heap`,
 the `&` operator is used in conjunction with the `*` operator
 to take a reference to the contents of the box.
 
@@ -2196,7 +2196,7 @@ and may not be overridden:
 Types are sendable
 unless they contain references.
 
-* `Share` - Types that are *threadsafe*
+* `Share` - Types that are *threadsafe*.
 These are types that are safe to be used across several threads with access to
 a `&T` pointer. `Mutex<T>` is an example of a *sharable* type with internal mutable data.
 

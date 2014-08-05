@@ -40,7 +40,8 @@ fn main() {
 */
 
 #![crate_name = "fourcc"]
-#![experimental]
+#![deprecated = "This is now a cargo package located at: \
+                 https://github.com/rust-lang/fourcc"]
 #![crate_type = "rlib"]
 #![crate_type = "dylib"]
 #![license = "MIT/ASL2"]
@@ -123,7 +124,7 @@ pub fn expand_syntax_ext(cx: &mut ExtCtxt, sp: Span, tts: &[ast::TokenTree])
             (val << 8) | (byte as u32)
         };
     }
-    let e = cx.expr_lit(sp, ast::LitUint(val as u64, ast::TyU32));
+    let e = cx.expr_lit(sp, ast::LitInt(val as u64, ast::UnsignedIntLit(ast::TyU32)));
     MacExpr::new(e)
 }
 
